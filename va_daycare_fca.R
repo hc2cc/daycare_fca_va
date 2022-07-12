@@ -10,6 +10,7 @@ library(osrm)
 library(catchment)
 library(leaflet)
 library(htmlwidgets)
+library(webshot)
 
 # set working folder
 setwd("~/git/daycare_fca_va")
@@ -208,5 +209,7 @@ map_block_groups %>%
       round(va.bg$pop_under15 * va.bg$fca3s/ 1000, 4)
     )
   )
-# saving a map as html fodler
-#saveWidget(map_block_groups, file="va013_daycare_fca.html")
+
+# saving a map as an image 
+# webshot("va013_daycare_fca_map.html", file = "va013_daycare_fca.png",
+#        cliprect = "viewport")
