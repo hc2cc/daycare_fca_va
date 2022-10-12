@@ -14,11 +14,13 @@ library(htmlwidgets)
 library(webshot)
 
 # set working folder
-setwd("~/git/daycare_fca_va")
+setwd("~/daycare_fca_va")
 
 #######################
 # DAYACRE DATA PREP
 #######################
+# Daycare data is collected from VA Department of Social Services 
+# The geographical coordinates of the daycares location are approximated using tidygeocoder with Google Maps API
 
 # load daycare data (collecated from https://dss.virginia.gov/facility/search/cc2.cgi)
 daycare_va <- read_csv("data/daycare_lonlat.csv")
@@ -67,6 +69,10 @@ supply <- supply %>% subset(nchar(as.character(capacity)) < 5)
 #####################################
 # DEMAND (CHILDREN UNDER AGE OF 15)
 #####################################
+
+# The Census American Community Survey data is accessed using the Census API with tidycensus
+# To access ACS a free public access API key is needed 
+# It can be obtained at https://api.census.gov/data/key_signup.html (needs to be activated at first access)
 
 # installed census api key
 Sys.getenv("CENSUS_API_KEY")
