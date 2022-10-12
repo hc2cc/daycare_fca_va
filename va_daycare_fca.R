@@ -1,4 +1,5 @@
-# Daycare Access Scores for Arlington, VA at census block group level in 2021 using 2019 ACS
+# Daycare Access Scores with floating catchment areas for Arlington, VA at census block group level 
+# in 2021 using 2019 ACS (for daycare demand approximation)
 # packages
 library(tigris)
 library(sf)
@@ -64,7 +65,7 @@ colnames(supply) <- c("lon", "lat", "GEOID", "capacity", "daycare_id")
 supply <- supply %>% subset(nchar(as.character(capacity)) < 5)
 
 #####################################
-# DEMAND (CHIKDREN UNDER AGE OF 15)
+# DEMAND (CHILDREN UNDER AGE OF 15)
 #####################################
 
 # installed census api key
